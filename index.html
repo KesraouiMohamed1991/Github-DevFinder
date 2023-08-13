@@ -1,0 +1,276 @@
+<!doctype html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./dist/output.css" />
+    <title>Github search App</title>
+  </head>
+  <body>
+    <section
+      class="h-screen w-screen dark:bg-base bg-baseLight flex justify-center items-center font-mono"
+    >
+      <main
+        class="w-[90%] h-[90%] sm:h-[70%] sm:w-[60%] mx-auto flex flex-col justify-between"
+      >
+        <!-- header area -->
+        <header
+          class="h-[6%] dark:bg-base bg-baseLight flex justify-between items-center cursor-pointer"
+        >
+          <p
+            class="h-full py-1 px-2 text-secondary sm:text-xl dark:text-secondaryLight font-bold flex flex-col items-center justify-center"
+          >
+            <span>DevFinder</span>
+          </p>
+          <div class="flex flex-row h-full items-center">
+            <span
+              id="theme"
+              class="inline-block px-4 dark:text-white text-secondary font-bold cursor-pointer"
+              >Light</span
+            >
+            <img
+              id="themeicon"
+              class="theme-switcher"
+              src="./src/assets/icon-sun.svg"
+              alt=""
+            />
+          </div>
+        </header>
+        <!-- input area -->
+        <div class="h-[10%] rounded-2xl overflow-hidden">
+          <form
+            action=""
+            class="relative rounded-2xl h-full dark:bg-secondary bg-secondaryLight flex justify-between items-center"
+          >
+            <input
+              id="input"
+              type="text"
+              class="ml-10 h-full w-2/3 px-4 sm:px-8 dark:bg-secondary bg-secondaryLight dark:text-secondaryLight text-sm outline-none border-none dark:sm:placeholder:text-slate-50/2 text-slate-600 foc"
+              placeholder=" Search Github username"
+            />
+            <span class="inline-block top-2 sm:top-1 left-4 absolute p-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="blue"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
+              </svg>
+            </span>
+            <span>
+              <svg
+                id="x"
+                class="absolute top-6 right-28 sm:right-48 h-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="red"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </span>
+            <button
+              id="btn"
+              class="bg-blue-500 hover:bg-blue-400 h-[60%] sm:h-[80%] w-1/6 rounded-xl mx-2 place-items-end text-baseLight text-sm font-bold sm:text-lg"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+        <!-- content area -->
+        <section
+          class="h-[82%] flex flex-col sm:flex-row dark:bg-secondary bg-secondaryLight rounded-2xl shadow-lg dark:shadow-blue-900 shadow-blue-200"
+        >
+          <!-- image element -->
+          <div
+            class="sm:w-[20%] h-[20%] sm:h-full flex flex-row sm:flex-col sm:justify-center sm:items-center justify-between"
+          >
+            <div
+              class="sm:h-1/2 sm:w-full w-1/2 h-full flex justify-center items-center"
+            >
+              <img
+                id="image-profil"
+                class="h-24 my-4 w-24 sm:w-2/3 sm:h-1/2 object-cover rounded-full"
+                src="https://qph.cf2.quoracdn.net/main-qimg-729a22aba98d1235fdce4883accaf81e"
+                alt=""
+              />
+            </div>
+
+            <div
+              class="sm:h-1/2 sm:w-full w-1/2 h-full flex flex-col justify-evenly items-center"
+            >
+              <span
+                id="fav-toggle"
+                class="text-secondary font-bold dark:text-slate-50 bg-slate-200 dark:bg-base rounded-md p-2 text-sm sm:text-base"
+                >Favorites</span
+              >
+
+              <div class="flex justify-evenly items-center w-full">
+                <div>
+                  <img
+                    id="star"
+                    class="h-6"
+                    src="./src/assets/icon-star.svg"
+                    alt=""
+                  />
+                  <span class="text-secondary dark:text-baseLight text-xs"
+                    >Add</span
+                  >
+                </div>
+
+                <div>
+                  <img
+                    id="clear"
+                    class="h-6"
+                    src="./src/assets/remove.svg"
+                    alt=""
+                  />
+                  <span class="text-secondary dark:text-baseLight text-xs"
+                    >clear</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- the content side -->
+          <div class="w-full sm:w-[75%] h-full flex flex-col justify-around">
+            <div
+              class="w-[90%] sm:h-[28%] h-[20%] mx-auto sm:p-8 flex flex-col justify-between"
+            >
+              <div class="flex justify-between">
+                <div class="">
+                  <h2
+                    id="name"
+                    class="dark:text-secondaryLight text-base font-bold sm:text-2xl my-2"
+                  >
+                    The Octocat
+                  </h2>
+                  <p id="user" class="text-blue-600 my-2">@Octocat</p>
+                </div>
+                <p id="joined" class="dark:text-secondaryLight text-sm py-2">
+                  Joined 26 jan 2022
+                </p>
+              </div>
+              <p
+                id="bio"
+                class="dark:text-blue-200 text-blue-600 text-center sm:text-start text-sm"
+              >
+                This profil has no bio
+              </p>
+            </div>
+
+            <div
+              class="dark:bg-base bg-baseLight rounded-2xl text-secondary dark:text-baseLight w-[85%] h-[14%] sm:text-lg text-xs mx-auto p-2 flex items-center justify-evenly"
+            >
+              <div class="flex flex-col">
+                <span class="inline-block">Repos</span>
+                <span id="repos" class="inline-block font-bold">8</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="inline-block">Followers</span>
+                <span id="Followers" class="inline-block font-bold">10063</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="inline-block">Following</span>
+                <span id="Following" class="inline-block font-bold">9</span>
+              </div>
+            </div>
+
+            <div
+              class="w-[90%] h-[28%] mx-auto sm:p-2 flex flex-col sm:flex-row sm:justify-between justify-center items-center"
+            >
+              <div
+                class="flex flex-col h-1/2 sm:h-full w-full sm:w-1/2 text-base sm:text-base text-secondary dark:text-secondaryLight"
+              >
+                <div class="h-1/2 w-full flex justify-start items-center">
+                  <span class="px-2"
+                    ><img src="./src/assets/icon-location.svg" alt=""
+                  /></span>
+                  <span id="location" class="px-2 ">San Francisco</span>
+                </div>
+                <div class="h-1/2 w-full flex justify-start items-center">
+                  <span class="px-2"
+                    ><img src="./src/assets/icon-twitter.svg" alt=""
+                  /></span>
+                  <span id="twitter-account" class="px-1 sm:px-2"
+                    >Github</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col h-1/2 sm:h-full sm:w-1/2 w-full text-base  text-secondary dark:text-secondaryLight"
+              >
+                <div class="h-1/2 w-full flex justify-start items-center">
+                  <span class="px-2"
+                    ><img src="./src/assets/icon-website.svg" alt=""
+                  /></span>
+                  <span id="blog" class="px-1 sm:px-2 text-sm overflow-hidden"
+                    >https://github.blog</span
+                  >
+                </div>
+
+                <div class="h-1/2 w-full flex justify-start items-center">
+                  <span class="px-2"
+                    ><img src="./src/assets/icon-company.svg" alt=""
+                  /></span>
+                  <span id="company" class="sm:px-2 px-1">Github</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- this element is the popUp window -->
+      <div
+      
+        id="pop-up"
+        class="absolute h-full w-full bg-slate-50/50 backdrop:blur-2xl grid place-items-center hidden "
+      >
+      <!-- am toggling two display classes -->
+        <div
+          class="w-[90%] h-1/2 sm:w-1/3 dark:bg-base bg-baseLight rounded-xl p-4 text-sm text-secondaryLight "
+        >
+          <img id="X-toggle" class="h-8" src="./src/assets/popUp.svg" alt="" />
+          <p
+            class="py-1 px-2 text-secondary sm:text-xl dark:text-secondaryLight font-bold flex flex-col items-center justify-center"
+          >
+            <span class="text-secondary dark:text-baseLight my-4">DevFinder</span>
+          </p>
+          <p class="text-secondary dark:text-baseLight px-4">
+            Explore and Access Your Favorite GitHub Accounts with a Single Click:
+          </p>
+          <ul
+            id="ul-list"
+            class="h-full w-full text-secondary  dark:text-baseLight p-4"
+          >
+            <!-- items will be added by js code -->
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <script src="./src/app.js"></script>
+  </body>
+</html>
